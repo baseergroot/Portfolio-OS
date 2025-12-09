@@ -3,7 +3,7 @@ import AppIcon from './AppIcon'
 
 interface DesktopProps {
   onOpenWindow: (type: 'terminal' | 'projects' | 'resume' | 'about') => void
-}
+} 
 
 export default function Desktop({ onOpenWindow }: DesktopProps) {
   const apps = [

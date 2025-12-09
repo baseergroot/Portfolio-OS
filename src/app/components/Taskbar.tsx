@@ -1,4 +1,4 @@
-import { Home, Terminal, FolderOpen, FileText, User } from 'lucide-react'
+import { Home, Terminal, FolderOpen, FileText, User, LayoutGrid } from 'lucide-react'
 
 interface TaskbarProps {
   windows: Array<{ id: string; title: string; minimized: boolean }>
@@ -18,27 +18,30 @@ export default function Taskbar({ windows, onOpenWindow, onMinimize }: TaskbarPr
   return (
     <div className="bg-gray-800/90 backdrop-blur-sm border-t border-gray-700 px-4 flex items-center justify-between py-2">
       {/* Start Button */}
-      <button 
+      <button
         onClick={() => onOpenWindow('about')}
-        className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg flex items-center gap-2 hover:opacity-90 transition"
+        className="px-4 py-2 bg-gray-700  rounded-lg flex items-center gap-2 hover:opacity-90 transition"
       >
-        <span>🚀</span>
-        <span className="font-medium">Start</span>
+        {/* <span>🚀</span> */}
+        {/* <span className="font-medium">Start</span> */}
+        <span className="font-medium">
+          <LayoutGrid />
+        </span>
       </button>
-      
+
       {/* App Shortcuts */}
       <div className="flex gap-1">
-        <button onClick={() => onOpenWindow('terminal')} className="p-2 hover:bg-gray-700 rounded">
+        <button onClick={() => onOpenWindow('terminal')} className="p-2 bg-gray-700 hover:bg-gray-600 rounded">
           <Terminal size={20} />
         </button>
-        <button onClick={() => onOpenWindow('projects')} className="p-2 hover:bg-gray-700 rounded">
+        <button onClick={() => onOpenWindow('projects')} className="p-2 bg-gray-700 hover:bg-gray-600 rounded">
           <FolderOpen size={20} />
         </button>
-        <button onClick={() => onOpenWindow('resume')} className="p-2 hover:bg-gray-700 rounded">
+        <button onClick={() => onOpenWindow('resume')} className="p-2 bg-gray-700 hover:bg-gray-600 rounded">
           <FileText size={20} />
         </button>
       </div>
-      
+
       {/* Open Windows */}
       <div className="flex gap-2">
         {windows.map((window) => (
@@ -52,7 +55,7 @@ export default function Taskbar({ windows, onOpenWindow, onMinimize }: TaskbarPr
           </button>
         ))}
       </div>
-      
+
       {/* System Tray */}
       <div className="flex items-center gap-4">
         <div className="text-xs text-gray-400">
