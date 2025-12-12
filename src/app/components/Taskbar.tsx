@@ -1,4 +1,5 @@
 import { Home, Terminal, FolderOpen, FileText, User, LayoutGrid } from 'lucide-react'
+import MenuBtn from './MenuBtn';
 
 interface TaskbarProps {
   windows: Array<{ id: string; title: string; minimized: boolean }>
@@ -18,16 +19,7 @@ export default function Taskbar({ windows, onOpenWindow, onMinimize }: TaskbarPr
   return (
     <div className="bg-gray-800/90 backdrop-blur-sm border-t border-gray-700 px-4 flex items-center justify-between py-2">
       {/* Start Button */}
-      <button
-        onClick={() => onOpenWindow('about')}
-        className="px-4 py-2 bg-gray-700  rounded-lg flex items-center gap-2 hover:opacity-90 transition"
-      >
-        {/* <span>🚀</span> */}
-        {/* <span className="font-medium">Start</span> */}
-        <span className="font-medium">
-          <LayoutGrid />
-        </span>
-      </button>
+      <MenuBtn openWindow={onOpenWindow} windows={windows} onMinimize={onMinimize} />
 
       {/* App Shortcuts */}
       <div className="flex gap-1">

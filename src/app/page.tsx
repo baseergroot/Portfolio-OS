@@ -14,7 +14,7 @@ export default function Home() {
     position: { x: number; y: number }
   }>>([])
 
-  const openWindow = (type: 'terminal' | 'projects' | 'resume' | 'about') => {
+  const openWindow = (type: 'terminal' | 'projects' | 'resume' | 'about'):void => {
     const newWindow = {
       id: `${type}-${Date.now()}`,
       title: getWindowTitle(type),
@@ -77,6 +77,7 @@ export default function Home() {
     </div>
   )
 }
+
 
 // Content Components
 const TerminalContent = () => (
@@ -288,4 +289,5 @@ const AboutContent = () => (
     </div>
   </div>
 )
+
 
