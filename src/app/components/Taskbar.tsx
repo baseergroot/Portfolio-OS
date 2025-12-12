@@ -8,6 +8,8 @@ interface TaskbarProps {
 }
 
 export default function Taskbar({ windows, onOpenWindow, onMinimize }: TaskbarProps) {
+  // console.log("task func: ",onOpenWindow); 
+  
   const getIcon = (title: string) => {
     if (title.includes('Terminal')) return <Terminal size={20} />
     if (title.includes('Projects')) return <FolderOpen size={20} />

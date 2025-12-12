@@ -14,9 +14,10 @@ export default function Home() {
     position: { x: number; y: number }
   }>>([])
 
-  const openWindow = (type: 'terminal' | 'projects' | 'resume' | 'about'):void => {
+  const openWindow = (type: 'terminal' | 'projects' | 'resume' | 'about'): void => {
     const newWindow = {
-      id: `${type}-${Date.now()}`,
+      // id: `${type}-${Date.now()}`,
+      id: crypto.randomUUID(),
       title: getWindowTitle(type),
       type,
       minimized: false,
@@ -30,13 +31,13 @@ export default function Home() {
   }
 
   const minimizeWindow = (id: string) => {
-    setWindows(windows.map(w => 
+    setWindows(windows.map(w =>
       w.id === id ? { ...w, minimized: !w.minimized } : w
     ))
   }
 
   const getWindowTitle = (type: string) => {
-    switch(type) {
+    switch (type) {
       case 'terminal': return 'bash — Terminal'
       case 'projects': return 'Projects Explorer'
       case 'resume': return 'resume.pdf — PDF Viewer'
@@ -49,7 +50,7 @@ export default function Home() {
     <div className="h-svh flex flex-col bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
       {/* Desktop with Icons */}
       <Desktop onOpenWindow={openWindow} />
-      
+
       {/* Open Windows */}
       {windows.map((window) => (
         <Window
@@ -67,9 +68,9 @@ export default function Home() {
           {window.type === 'about' && <AboutContent />}
         </Window>
       ))}
-      
+
       {/* Taskbar */}
-      <Taskbar 
+      <Taskbar
         windows={windows}
         onOpenWindow={openWindow}
         onMinimize={minimizeWindow}
@@ -84,7 +85,7 @@ const TerminalContent = () => (
   <div className="p-4 font-mono bg-black h-full overflow-auto">
     <div className="text-green-400">$ whoami</div>
     <div className="mb-2">baser-afridi@portfolio:~$</div>
-    
+
     <div className="text-green-400">$ skills</div>
     <div className="grid grid-cols-2 gap-2 mt-2">
       <span className="text-cyan-300">• Next.js</span>
@@ -109,22 +110,22 @@ const TerminalContent = () => (
       <span className="text-cyan-300">• Better Auth</span>
 
     </div>
-    
+
     <div className="text-green-400 mt-4">$ cat experience.txt</div>
     <pre className="text-sm mt-2">
-{`Full-Stack Developer (2023-Present)
+      {`Full-Stack Developer (2023-Present)
 • Built production web apps with React/Next.js
 • Integrated Shopify, Stripe, Cloudinary APIs
 • Deployed on Vercel with 99.9% uptime`}
     </pre>
-    
+
     <div className="text-green-400 mt-4">$ projects --list</div>
     <div className="mt-2">
       <div>1. Nextgram — Social Media Platform</div>
       <div>2. Headless E-commerce Store</div>
       <div>3. Grootly — URL Shortner </div>
     </div>
-    
+
     {/* <div className="mt-4">
       <div className="text-green-400"> <span className="text-gray-400">Type "help" for commands</span></div>
     </div> */}
@@ -134,7 +135,7 @@ const TerminalContent = () => (
 const ProjectsContent = () => (
   <div className="p-6">
     <h2 className="text-2xl font-bold mb-6">My Projects</h2>
-    
+
     <div className="space-y-6">
       <div className="border border-gray-700 rounded-lg p-4 hover:border-cyan-500 transition">
         <h3 className="text-xl font-bold text-cyan-300">Nextgram</h3>
@@ -147,11 +148,11 @@ const ProjectsContent = () => (
         </div>
         <a href="https://nextgram-dev.vercel.app" target='blank'>
           <button className="mt-4 px-4 py-2 bg-cyan-600 hover:bg-cyan-700 rounded">
-          View Live Demo
-        </button>
+            View Live Demo
+          </button>
         </a>
       </div>
-      
+
       <div className="border border-gray-700 rounded-lg p-4 hover:border-green-500 transition">
         <h3 className="text-xl font-bold text-green-300">E-commerce Store</h3>
         <p className="text-gray-300 mt-2">Headless e-commerce with Shopify & Next.js</p>
@@ -162,8 +163,8 @@ const ProjectsContent = () => (
         </div>
         <a href="https://shopify-headless-app.vercel.app" target='blank'>
           <button className="mt-4 px-4 py-2 bg-green-600 hover:bg-green-700 rounded">
-          View Live Demo
-        </button>
+            View Live Demo
+          </button>
         </a>
       </div>
 
@@ -177,8 +178,8 @@ const ProjectsContent = () => (
         </div>
         <a href="https://grtly.vercel.app" target='blank'>
           <button className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded">
-          View Live Demo
-        </button>
+            View Live Demo
+          </button>
         </a>
       </div>
     </div>
@@ -197,7 +198,7 @@ const ResumeContent = () => (
         📥 Download PDF
       </a> */}
     </div>
-    
+
     <div className="grid md:grid-cols-2 gap-6">
       {/* Left Column */}
       <div>
@@ -216,7 +217,7 @@ const ResumeContent = () => (
             <span>Peshawar, Pakistan</span>
           </div>
         </div>
-        
+
         <h3 className="text-xl font-bold text-cyan-300 mt-6 mb-4">Skills</h3>
         <div className="grid grid-cols-2 gap-2">
           {['Next.js', 'React', 'TypeScript', 'Tailwind', 'MongoDB', 'Node.js', 'Git', 'Vercel', 'Stripe', 'Cloudinary', 'GraphQL (Query Basic)', 'MongoDB (Mongoose)', 'Mongoose', 'Prisma', 'PostgreSQL', 'Linux', 'Better Auth'].map(skill => (
@@ -227,7 +228,7 @@ const ResumeContent = () => (
           ))}
         </div>
       </div>
-      
+
       {/* Right Column */}
       <div>
         <h3 className="text-xl font-bold text-cyan-300 mb-4">Experience</h3>
@@ -238,7 +239,7 @@ const ResumeContent = () => (
             <p className="text-gray-300 mt-1">Self-taught, building production web applications</p>
           </div>
         </div>
-        
+
         <h3 className="text-xl font-bold text-cyan-300 mt-6 mb-4">Projects</h3>
         <div className="space-y-3">
           <div>
@@ -273,7 +274,7 @@ const AboutContent = () => (
         {"When I'm not coding, I'm learning new technologies, or building side projects."}
       </p>
     </div>
-    
+
     <div className="mt-8">
       <h3 className="text-xl font-bold mb-4">Get In Touch</h3>
       <div className="flex gap-4">
@@ -282,8 +283,8 @@ const AboutContent = () => (
         </button>
         <a href="https://github.com/baseergroot" target='blank'>
           <button className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center gap-2">
-             Github
-        </button>
+            Github
+          </button>
         </a>
       </div>
     </div>

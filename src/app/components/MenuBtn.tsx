@@ -3,8 +3,9 @@ import { LayoutGrid, Terminal, FolderOpen, FileText, User, Mail, Github, Linkedi
 import { useEffect, useState } from 'react'
 
 
-const MenuBtn = ({ onOpenWindow, windows, onMinimize }: { onOpenWindow: (type: 'terminal' | 'projects' | 'resume' | 'about') => void, windows: Array<{ id: string; title: string; minimized: boolean }>, onMinimize: (id: string) => void}) => {
+const MenuBtn = ({ openWindow, windows, onMinimize }: { openWindow: (type: 'terminal' | 'projects' | 'resume' | 'about') => void, windows: Array<{ id: string; title: string; minimized: boolean }>, onMinimize: (id: string) => void}) => {
   const [showMenu, setShowMenu] = useState(false)
+  // console.log('func:', openWindow);
 
   useEffect(() => {
     const handleClickOutside = () => {
@@ -36,37 +37,59 @@ const MenuBtn = ({ onOpenWindow, windows, onMinimize }: { onOpenWindow: (type: '
         showMenu && (
           <div className="absolute bottom-15 left-1 bg-gray-800 border border-gray-700 rounded shadow-lg w-48">
             <ul>
+
               <li className='px-4 py-2 hover:bg-gray-700 cursor-pointer'>
                 <button className=" flex items-center gap-3" 
-                onClick={() => onOpenWindow('terminal')}>
+                onClick={() => openWindow('terminal')}>
                   <Terminal size={18} className="text-green-400" />
                 <span>Terminal</span>
                 </button>
-                
               </li>
-              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-3">
-                <FolderOpen size={18} className="text-yellow-400" />
+
+              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer">
+                <button className=" flex items-center gap-3" 
+                onClick={() => openWindow('projects')}>
+                  <FolderOpen size={18} className="text-yellow-400" />
                 <span>Projects</span>
+                </button>
               </li>
+
               <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-3">
-                <FileText size={18} className="text-blue-400" />
+                <button className=" flex items-center gap-3" 
+                onClick={() => openWindow('resume')}>
+                  <FileText size={18} className="text-blue-400" />
                 <span>Resume</span>
+                </button>
               </li>
+
               <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-3">
-                <User size={18} className="text-purple-400" />
+                <button className=" flex items-center gap-3" 
+                onClick={() => openWindow('about')}>
+                  <User size={18} className="text-purple-400" />
                 <span>About Me</span>
+                </button>
               </li>
-              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-3">
-                <Mail size={18} className="text-red-400" />
+              
+              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer ">
+                <a href="mailto:baseergroot@gmail.com" className='flex items-center gap-3'>
+                  <Mail size={18} className="text-red-400" />
                 <span>Email</span>
+                </a>
               </li>
-              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-3">
-                <Github size={18} className="text-gray-300" />
+
+              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer ">
+                <a href="https://github.com/baseergroot" className='flex items-center gap-3' target="_blank" rel="noopener noreferrer"> 
+                  <Github size={18} className="text-gray-300" />
                 <span>GitHub</span>
+                </a>
               </li>
-              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer flex items-center gap-3">
-                <Linkedin size={18} className="text-blue-500" />
+
+              <li className="px-4 py-2 hover:bg-gray-700 cursor-pointer ">
+                <a href="https://www.linkedin.com/in/baseer-afridi-3b1169363" className='flex items-center gap-3' target="_blank" rel="noopener noreferrer">
+                  <Linkedin size={18} className="text-blue-500" />
                 <span>LinkedIn</span>
+                </a>
+                {/* https://www.linkedin.com/in/baseer-afridi-3b1169363 */}
               </li>
             </ul>
           </div>
