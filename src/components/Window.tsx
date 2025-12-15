@@ -71,11 +71,11 @@ export default function Window({
         onMouseDown={handleMouseDown}
       >
         <div className="flex items-center gap-3">
-          <div className="flex gap-2">
+          {/* <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 cursor-pointer" onClick={onClose}></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 cursor-pointer" onClick={onMinimize}></div>
             <div className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400"></div>
-          </div>
+          </div> */}
           <span className="text-sm font-medium ml-2">{title}</span>
         </div>
         

@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import Desktop from './components/Desktop'
-import Window from './components/Window'
-import Taskbar from './components/Taskbar'
+import { useEffect, useState } from 'react'
+import Desktop from '../components/Desktop'
+import Window from '../components/Window'
+import Taskbar from '../components/Taskbar'
+import Loading from './loading'
 
 export default function Home() {
   const [windows, setWindows] = useState<Array<{
@@ -13,6 +14,19 @@ export default function Home() {
     minimized: boolean
     position: { x: number; y: number }
   }>>([])
+  // const [loading, setLoading] = useState<boolean>(true)
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false)
+  //   }, 2000);
+  // }, [])
+
+  // if (loading) {
+  //   return (
+  //     <Loading />
+  //   )
+  // }
 
   const openWindow = (type: 'terminal' | 'projects' | 'resume' | 'about'): void => {
     const newWindow = {
@@ -48,6 +62,7 @@ export default function Home() {
 
   return (
     <div className="h-svh flex flex-col bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
+      
       {/* Desktop with Icons */}
       <Desktop onOpenWindow={openWindow} />
 
