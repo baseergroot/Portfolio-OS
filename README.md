@@ -1,8 +1,52 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# Interactive Desktop Portfolio
+
+A unique portfolio website built with Next.js and Tailwind CSS, simulating a modern desktop operating system interface. Explore my projects, skills, and resume through draggable and interactive windows.
+
+**➡️ [View Live Demo](https://baseer-dev.vercel.app/)**
+
+![Project Screenshot](https://raw.githubusercontent.com/baseergroot/Portfolio-OS/main/public/home.png)
+
+## ✨ Features
+
+- **🖥️ Desktop UI:** A familiar and intuitive desktop environment.
+- **🪟 Interactive Windows:** Open, close, minimize, and drag application windows.
+- **🗂️ Content "Apps":**
+  - **Terminal:** A mock terminal displaying my skills and experience.
+  - **Projects Explorer:** Browse through my featured projects with live demo links.
+  - **Resume Viewer:** A clean view of my professional resume.
+  - **About Me:** Learn a little more about who I am.
+- **📊 Taskbar:** Manage open and minimized applications with ease.
+- **🚀 Built with Modern Tech:** Leverages Next.js for performance and React for a dynamic UI.
+
+## 🛠️ Built With
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Lucide React (for icons)
+
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+Make sure you have Node.js and npm (or yarn/pnpm/bun) installed.
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/baseergroot/Portfolio-OS.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the development server:
 
 ```bash
 npm run dev
