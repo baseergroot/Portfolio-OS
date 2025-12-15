@@ -55,7 +55,7 @@ export default function Taskbar({ windows, onOpenWindow, onMinimize }: TaskbarPr
         <div className="text-xs text-gray-400">
           {new Date().toLocaleDateString()}
         </div>
-        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+        {/* <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500"></div> */}
       </div>
     </div>
   )
