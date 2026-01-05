@@ -1,21 +1,23 @@
 import { Terminal, FolderOpen, FileText, User, Mail, Github, Linkedin, LucideProps } from 'lucide-react'
 import AppIcon from './AppIcon'
 import { ForwardRefExoticComponent, Fragment, RefAttributes } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface DesktopProps {
   onOpenWindow: (type: 'terminal' | 'projects' | 'resume' | 'about') => void
 }
 
 export default function Desktop({ onOpenWindow }: DesktopProps) {
+  const router = useRouter()
 
   const apps: { id: string; name: string; icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>; color: string; action?: () => void; href?: string }[] = [
     { id: 'terminal', name: 'Terminal', icon: Terminal, color: 'text-green-400', action: () => onOpenWindow('terminal') },
     { id: 'projects', name: 'Projects', icon: FolderOpen, color: 'text-yellow-400', action: () => onOpenWindow('projects') },
     { id: 'resume', name: 'Resume', icon: FileText, color: 'text-blue-400', action: () => onOpenWindow('resume') },
     { id: 'about', name: 'About Me', icon: User, color: 'text-purple-400', action: () => onOpenWindow('about') },
-    { id: 'email', name: 'Email', icon: Mail, color: 'text-red-400', href: 'mailto:baseergroot@gmail.com' },
-    { id: 'github', name: 'GitHub', icon: Github, color: 'text-gray-400', href: 'https://github.com/baseergroot' },
-    { id: 'linkedin', name: 'LinkedIn', icon: Linkedin, color: 'text-blue-500', href: 'https://linkedin.com/in/baseergroot' },
+    { id: 'email', name: 'Email', icon: Mail, color: 'text-red-400', href: 'mailto:baseergroot@gmail.com', action: () => window.open('mailto:baseergroot@gmail.com')  },
+    { id: 'github', name: 'GitHub', icon: Github, color: 'text-gray-400', href: 'https://github.com/baseergroot', action: () => window.open('https://github.com/baseergroot', '_blank') },
+    { id: 'linkedin', name: 'LinkedIn', icon: Linkedin, color: 'text-blue-500', href: 'https://linkedin.com/in/baseergroot', action: () => window.open('https://linkedin.com/in/baseergroot', '_blank') },
   ]
 
   // const handleAppClick = (id: string) => {
@@ -57,27 +59,29 @@ export default function Desktop({ onOpenWindow }: DesktopProps) {
         <div className="text-3xl font-mono">
           {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </div>
-        <div className="text-gray-400">Welcome, visitor!</div>
+        {/* <div className="text-gray-400">Welcome, visitor!</div> */}
       </div>
 
       {/* App Icons */}
-      {apps.map((app: any) => {
-        const icon = (
-          <AppIcon
-            key={app.id}
-            icon={app.icon}
-            name={app.name}
-            color={app.color}
-            onClick={app.action}
-          />
-        )
+      <section className="flex flex-wrap w-[90vw]">
+        {apps.map((app: any) => {
+          const icon = (
+            <AppIcon
+              key={app.id}
+              icon={app.icon}
+              name={app.name}
+              color={app.color}
+              onClick={app.action}
+            />
+          )
 
-        if (app.href) {
-          return <a key={app.id} href={app.href} target="_blank" rel="noopener noreferrer">{icon}</a>
-        }
+          // if (app.href) {
+          //   return <a key={app.id} href={app.href} target="_blank" rel="noopener noreferrer">{icon}</a>
+          // }
 
-        return <Fragment key={app.id}>{icon}</Fragment>
-      })}
+          return <Fragment key={app.id}>{icon}</Fragment>
+        })}
+      </section>
 
       {/* Welcome Message */}
       <div className="col-span-full mt-12">

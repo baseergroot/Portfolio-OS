@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Desktop from '../components/Desktop'
 import Window from '../components/Window'
 import Taskbar from '../components/Taskbar'
-import Loading from './loading'
+import Loading from '../components/loading'
 
 export default function Home() {
   const [windows, setWindows] = useState<Array<{
@@ -14,19 +14,19 @@ export default function Home() {
     minimized: boolean
     position: { x: number; y: number }
   }>>([])
-  // const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(true)
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setLoading(false)
-  //   }, 2000);
-  // }, [])
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000);
+  }, [])
 
-  // if (loading) {
-  //   return (
-  //     <Loading />
-  //   )
-  // }
+  if (loading) {
+    return (
+      <Loading />
+    )
+  }
 
   const openWindow = (type: 'terminal' | 'projects' | 'resume' | 'about'): void => {
     const newWindow = {
@@ -35,7 +35,7 @@ export default function Home() {
       title: getWindowTitle(type),
       type,
       minimized: false,
-      position: { x: 100 + windows.length * 30, y: 50 + windows.length * 30 }
+      position: { x: 20 + windows.length * 5, y: 50 + windows.length * 30 }
     }
     setWindows([...windows, newWindow])
   }
@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <div className="h-svh flex flex-col bg-gradient-to-br from-gray-900 to-gray-800 overflow-hidden">
-      
+
       {/* Desktop with Icons */}
       <Desktop onOpenWindow={openWindow} />
 

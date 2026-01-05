@@ -14,7 +14,7 @@ interface WindowProps {
 }
 
 export default function Window({ 
-  id, title, children, position, onClose, onMinimize, minimized 
+  id, title, children, position = { x: 0, y: 0 }, onClose, onMinimize, minimized 
 }: WindowProps) {
   const [isDragging, setIsDragging] = useState(false)
   const [offset, setOffset] = useState({ x: 0, y: 0 })
@@ -56,12 +56,12 @@ export default function Window({
 
   return (
     <div
-      className="absolute border border-gray-700 rounded-lg shadow-2xl overflow-hidden flex flex-col bg-gray-900"
+      className="absolute border border-gray-700 rounded-lg shadow-2xl overflow-hidden flex flex-col bg-gray-900 w-[350px] md:w-[700px] h-[500px]"
       style={{
         left: `${currentPosition.x}px`,
         top: `${currentPosition.y}px`,
-        width: '600px',
-        height: '500px',
+        // width: '600px',
+        // height: '500px',
         zIndex: 50
       }}
     >
