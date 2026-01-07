@@ -5,9 +5,19 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Baser Afridi | Full-Stack Developer',
+  metadataBase: new URL('https://www.baseer.online'), 
   description: 'Interactive OS-style portfolio of a self-taught full-stack developer',
-}
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Baser Afridi | Full-Stack Developer',
+    description: 'Interactive OS-style portfolio of a self-taught full-stack developer',
+    url: 'https://www.baseer.online',
+    siteName: 'Baser Afridi Portfolio',
+    type: 'website',
+  },
+};
 
 export default function RootLayout({
   children,
