@@ -17,7 +17,7 @@ export default function Desktop({ onOpenWindow }: DesktopProps) {
     { id: 'about', name: 'About Me', icon: User, color: 'text-purple-400', action: () => onOpenWindow('about') },
     { id: 'email', name: 'Email', icon: Mail, color: 'text-red-400', href: 'mailto:baseergroot@gmail.com', action: () => window.open('mailto:baseergroot@gmail.com')  },
     { id: 'github', name: 'GitHub', icon: Github, color: 'text-gray-400', href: 'https://github.com/baseergroot', action: () => window.open('https://github.com/baseergroot', '_blank') },
-    { id: 'linkedin', name: 'LinkedIn', icon: Linkedin, color: 'text-blue-500', href: 'https://linkedin.com/in/baseergroot', action: () => window.open('https://linkedin.com/in/baseergroot', '_blank') },
+    { id: 'linkedin', name: 'LinkedIn', icon: Linkedin, color: 'text-blue-500', href: 'https://linkedin.com/in/baseergroot', action: () => window.open('https://www.linkedin.com/in/baseer-afridi-3b1169363?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', '_blank') },
   ]
 
   // const handleAppClick = (id: string) => {
