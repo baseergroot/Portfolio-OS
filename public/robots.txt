@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: www.baseer.online
+Sitemap: https://www.baseer.online/sitemap.xml
