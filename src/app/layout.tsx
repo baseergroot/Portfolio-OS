@@ -5,19 +5,19 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Baser Afridi | Full-Stack Developer Portfolio',
+  title: 'Baseer Afridi | Full-Stack Developer Portfolio',
   metadataBase: new URL('https://www.baseer.online'), 
   description: 'Interactive OS-style portfolio of a self-taught full-stack developer specializing in Next.js, React, and modern web technologies',
-  keywords: ['Baser Afridi', 'Full-Stack Developer', 'Portfolio', 'Next.js Developer', 'React Developer'],
-  authors: [{ name: 'Baser Afridi' }],
+  keywords: ['Baseer Afridi', 'Full-Stack Developer', 'Portfolio', 'Next.js Developer', 'React Developer'],
+  authors: [{ name: 'Baseer Afridi' }],
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Baser Afridi | Full-Stack Developer Portfolio',
+    title: 'Baseer Afridi | Full-Stack Developer Portfolio',
     description: 'Interactive OS-style portfolio of a self-taught full-stack developer',
     url: 'https://www.baseer.online',
-    siteName: 'Baser Afridi Portfolio',
+    siteName: 'Baseer Afridi Portfolio',
     type: 'website',
   },
 };
